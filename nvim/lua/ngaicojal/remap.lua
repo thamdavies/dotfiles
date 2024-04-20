@@ -12,23 +12,21 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
--- greatest remap ever
 map("x", "<leader>p", [["_dP]])
 
--- next greatest remap ever : asbjornHaland
 map({ "n", "v" }, "<leader>y", [["+y]])
 map("n", "<leader>Y", [["+Y]])
 
 map({ "n", "v" }, "<leader>d", [["_d]])
 
--- This is going to get me cancelled
-map("i", "<C-c>", "<Esc>")
 map("i", "jk", "<Esc>")
 
 map("n", "<leader>bf", vim.lsp.buf.format)
 
 map("n", "[k", "<cmd>cnext<CR>zz")
 map("n", "[j", "<cmd>cprev<CR>zz")
+map("n", "bn", "<cmd>bnext<CR>zz")
+map("n", "bp", "<cmd>bprev<CR>zz")
 map("n", "<leader>k", "<cmd>lnext<CR>zz")
 map("n", "<leader>j", "<cmd>lprev<CR>zz")
 
