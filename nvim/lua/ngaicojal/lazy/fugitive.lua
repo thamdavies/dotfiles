@@ -19,9 +19,10 @@ return {
         vim.keymap.set("n", "<leader>p", function()
           vim.cmd.Git('push')
         end, opts)
-        -- rebase always
+
+        -- merge always
         vim.keymap.set("n", "<leader>P", function()
-          vim.cmd.Git({'pull',  '--rebase'})
+          vim.cmd.Git({'pull',  '--merge'})
         end, opts)
 
         -- NOTE: It allows me to easily set the branch i am pushing and any tracking
