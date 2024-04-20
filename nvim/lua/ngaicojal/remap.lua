@@ -16,17 +16,15 @@ map("n", "N", "Nzzzv")
 map("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-map({"n", "v"}, "<leader>y", [["+y]])
+map({ "n", "v" }, "<leader>y", [["+y]])
 map("n", "<leader>Y", [["+Y]])
 
-map({"n", "v"}, "<leader>d", [["_d]])
+map({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
 map("i", "<C-c>", "<Esc>")
 map("i", "jk", "<Esc>")
 
-map("n", "Q", "<nop>")
-map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 map("n", "<leader>bf", vim.lsp.buf.format)
 
 map("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -37,20 +35,14 @@ map("n", "<leader>j", "<cmd>lprev<CR>zz")
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-map(
-    "n",
-    "<leader>ee",
-    "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
-)
-
-map("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
 map("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 map("n", "<leader><leader>", function()
-    vim.cmd("so")
+  vim.cmd("so")
 end)
 
 -- telescope
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Telescope Find files" })
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Telescope Live grep" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Telescope Find buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope Help page" })
@@ -61,7 +53,6 @@ map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "Telescope Git
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "Telescope Git status" })
 map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "Telescope Pick hidden term" })
 map("n", "<leader>th", "<cmd>Telescope themes<CR>", { desc = "Telescope Nvchad themes" })
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Telescope Find files" })
 map(
   "n",
   "<leader>fa",
