@@ -27,8 +27,8 @@ map("i", "jk", "<Esc>")
 
 map("n", "<leader>bf", vim.lsp.buf.format)
 
-map("n", "<C-k>", "<cmd>cnext<CR>zz")
-map("n", "<C-j>", "<cmd>cprev<CR>zz")
+map("n", "[k", "<cmd>cnext<CR>zz")
+map("n", "[j", "<cmd>cprev<CR>zz")
 map("n", "<leader>k", "<cmd>lnext<CR>zz")
 map("n", "<leader>j", "<cmd>lprev<CR>zz")
 
