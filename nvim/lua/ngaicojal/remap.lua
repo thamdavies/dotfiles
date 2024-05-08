@@ -2,7 +2,7 @@ local map = vim.keymap.set
 
 vim.g.mapleader = " "
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
-map("n", "<leader>bl", "<cmd>Git blame<CR>")
+map("n", "<leader>et", "<cmd>NvimTreeFindFileToggle<CR>")
 
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
@@ -57,3 +57,9 @@ map(
   "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
   { desc = "Telescope Find all files" }
 )
+
+map("n", "<leader>gbl", "<cmd>Git blame<CR>")
+map("n", "<leader>ecm", function()
+  local message = vim.fn.input('Enter commit message: ')
+  vim.cmd('Git commit -m "' .. message .. '"')
+end)
