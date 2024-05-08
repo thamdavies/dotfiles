@@ -1,7 +1,8 @@
 local map = vim.keymap.set
 
 vim.g.mapleader = " "
-map("n", "<leader>e", vim.cmd.Ex)
+map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
+map("n", "<leader>bl", "<cmd>Git blame<CR>")
 
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
@@ -40,7 +41,7 @@ map("n", "<leader><leader>", function()
 end)
 
 -- telescope
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Telescope Find files" })
+map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Telescope Find files" })
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Telescope Live grep" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Telescope Find buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope Help page" })
