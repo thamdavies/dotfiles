@@ -1,8 +1,8 @@
 local map = vim.keymap.set
 
 vim.g.mapleader = " "
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
-map("n", "<leader>et", "<cmd>NvimTreeFindFileToggle<CR>")
+map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>")
+map("n", "<leader>nff", "<cmd>NvimTreeFindFile<CR>")
 
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
@@ -48,9 +48,11 @@ map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope Help 
 map("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "Telescope Find marks" })
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Telescope Find oldfiles" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Telescope Find in current buffer" })
-map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "Telescope Git commits" })
-map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "Telescope Git status" })
+map("n", "<leader>gcm", "<cmd>Telescope git_commits<CR>", { desc = "Telescope Git commits" })
+map("n", "<leader>gst", "<cmd>Telescope git_status<CR>", { desc = "Telescope Git status" })
 map("n", "<leader>ct", "<cmd>CloakToggle<CR>", { desc = "Cloak toggle" })
+map("n", "<C-s>", "ggVG", { desc = "Select all lines" })
+map("n", "<C-s>t", "ggVG<cmd>CopilotChatTests<CR>", { desc = "Generate unit test for the current buffer" })
 map(
   "n",
   "<leader>fa",
