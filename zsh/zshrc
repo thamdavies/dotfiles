@@ -103,7 +103,9 @@ export EDITOR=nvim
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
+alias cf="ls -l . | egrep -c '^-'" # count files in current directory
+
 # ENV
 export PATH=~/.npm-global/bin:$PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
+export XDG_CONFIG_HOME="$HOME/.config"

@@ -1,8 +1,8 @@
 local map = vim.keymap.set
 
 vim.g.mapleader = " "
-map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>")
-map("n", "<leader>nff", "<cmd>NvimTreeFindFile<CR>")
+map("n", "<C-n>", "<cmd>NvimTreeFindFileToggle<CR>")
+map("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>")
 
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
