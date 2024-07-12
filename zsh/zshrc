@@ -109,8 +109,8 @@ export PATH=~/.npm-global/bin:$PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export WORKON_HOME=~/Environment
-source /usr/local/bin/virtualenvwrapper.sh
 
+# asdf
 # . /opt/homebrew/opt/asdf/libexec/asdf.sh
 # . "$HOME/.asdf/asdf.sh"
 
@@ -118,4 +118,9 @@ if [ -f "$HOME/.asdf/asdf.sh" ]; then
   . "$HOME/.asdf/asdf.sh"
 elif [ -f "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]; then
   . "/opt/homebrew/opt/asdf/libexec/asdf.sh"
+fi
+
+# Python environment
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+  source /usr/local/bin/virtualenvwrapper.sh
 fi
