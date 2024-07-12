@@ -100,12 +100,22 @@ export EDITOR=nvim
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
+alias count_files="ls -1 | wc -l"
+alias rspec="bundle exec rspec"
 alias cf="ls -l . | egrep -c '^-'" # count files in current directory
 
 # ENV
 export PATH=~/.npm-global/bin:$PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
+export WORKON_HOME=~/Environment
+source /usr/local/bin/virtualenvwrapper.sh
+
+# . /opt/homebrew/opt/asdf/libexec/asdf.sh
+# . "$HOME/.asdf/asdf.sh"
+
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+  . "$HOME/.asdf/asdf.sh"
+elif [ -f "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]; then
+  . "/opt/homebrew/opt/asdf/libexec/asdf.sh"
+fi
