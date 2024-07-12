@@ -28,10 +28,32 @@ return {
       ensure_installed = {
         "lua_ls",
         "tsserver",
-        "solargraph"
+        "solargraph",
+        "volar"
       },
       handlers = {
         function(server_name) -- default handler (optional)
+          -- Check if server name is tsserver and if so, use setup with volar, else use default setup.
+          if server_name == "tsserver" then
+            require("lspconfig")[server_name].setup {
+              capabilities = capabilities,
+              init_options = {
+                plugins = {
+                  {
+                    name = "@vue/typescript-plugin",
+                    location = os.getenv("HOME") .. "/.npm-global/lib/node_modules/@vue/typescript-plugin",
+                    languages = {"javascript", "typescript", "vue"},
+                  },
+                },
+              },
+              filetypes = {
+                "javascript",
+                "typescript",
+                "vue",
+              },
+            }
+            return
+          end
 
           require("lspconfig")[server_name].setup {
             capabilities = capabilities
