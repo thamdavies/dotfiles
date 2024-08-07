@@ -52,7 +52,6 @@ map("n", "<leader>gcm", "<cmd>Telescope git_commits<CR>", { desc = "Telescope Gi
 map("n", "<leader>gst", "<cmd>Telescope git_status<CR>", { desc = "Telescope Git status" })
 map("n", "<leader>ct", "<cmd>CloakToggle<CR>", { desc = "Cloak toggle" })
 map("n", "<C-s>", "ggVG", { desc = "Select all lines" })
-map("n", "<C-s>t", "ggVG<cmd>CopilotChatTests<CR>", { desc = "Generate unit test for the current buffer" })
 map(
   "n",
   "<leader>fa",
