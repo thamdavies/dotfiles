@@ -14,7 +14,7 @@
 
 window:
   option_as_alt: "Both"
-  opacity: 0.9
+  opacity: 1
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
@@ -259,7 +259,7 @@ draw_bold_text_with_bright_colors: true
 #   #   `- { index: 16, color: '0xff00ff' }`
 #   #
 #   indexed_colors: []
-    
+
 # TokyoNight Alacritty Colors
 colors:
   # Default colors
@@ -292,9 +292,9 @@ colors:
   indexed_colors:
     - { index: 16, color: '0xff9e64' }
     - { index: 17, color: '0xdb4b4b' }
-    
-  
-  
+
+
+
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
