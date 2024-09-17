@@ -103,12 +103,14 @@ export EDITOR=nvim
 alias count_files="ls -1 | wc -l"
 alias rspec="bundle exec rspec"
 alias cf="ls -l . | egrep -c '^-'" # count files in current directory
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 # ENV
 export PATH=~/.npm-global/bin:$PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export WORKON_HOME=~/Environment
+export PATH="$HOME/.serverless/bin:$PATH" # Added by serverless binary installer
 
 # asdf
 # . /opt/homebrew/opt/asdf/libexec/asdf.sh
