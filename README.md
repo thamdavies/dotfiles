@@ -1,10 +1,14 @@
 # dotfiles
 ## Zsh
-1. Install `zsh-autosuggestions`
+1. Install `ohmyzsh`
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+2. Install `zsh-autosuggestions`
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
-2. Install `powerlevel10k`
+3. Install `powerlevel10k`
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
