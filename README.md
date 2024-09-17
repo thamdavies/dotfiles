@@ -1,4 +1,17 @@
 # dotfiles
+## Zsh
+1. Install `ohmyzsh`
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+2. Install `zsh-autosuggestions`
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+3. Install `powerlevel10k`
+```bash
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
 ## Node
 #### Manually change npm's default directory
 1. On the command line, in your home directory, create a directory for global installations:
