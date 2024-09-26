@@ -16,6 +16,9 @@ return {
   "navarasu/onedark.nvim",
   name = "onedark",
   config = function()
+    require("onedark").setup({
+      style = "dark",
+    })
     require("onedark").load()
   end
 }
