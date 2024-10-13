@@ -106,6 +106,7 @@ export PATH=~/.npm-global/bin:$PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export WORKON_HOME=~/Environment
+export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH="$HOME/.serverless/bin:$PATH" # Added by serverless binary installer
 
 # asdf
