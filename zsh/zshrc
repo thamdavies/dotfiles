@@ -42,6 +42,8 @@ alias count_files="ls -1 | wc -l"
 alias rspec="bundle exec rspec"
 alias cf="ls -l . | egrep -c '^-'" # count files in current directory
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias brspec=bundle exec rspec
+alias bsidekiq=bundle exec sidekiq
 
 # ENV
 export LANG=en_US.utf-8
@@ -53,6 +55,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export WORKON_HOME=~/Environment
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH="$HOME/.serverless/bin:$PATH" # Added by serverless binary installer
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # Add Visual Studio Code (code)
 
 # MySQL
 if [ -d "/usr/local/opt/mysql-client@8.4/bin" ]; then
