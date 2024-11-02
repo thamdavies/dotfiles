@@ -17,7 +17,7 @@ return {
   name = "onedark",
   config = function()
     require("onedark").setup({
-      style = "dark",
+      style = "light",
     })
     require("onedark").load()
   end
