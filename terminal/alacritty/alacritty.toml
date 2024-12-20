@@ -1,5 +1,6 @@
 # import = ["~/.config/alacritty/rose-pine-moon.toml"]
-import = ["~/.config/alacritty/one-dark.toml"]
+# import = ["~/.config/alacritty/one-dark.toml"]
+import = ["~/.config/alacritty/one-light.toml"]
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font" }
