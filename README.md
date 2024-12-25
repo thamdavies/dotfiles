@@ -1,4 +1,8 @@
 # dotfiles
+## Font
+```bash
+ brew install font-jetbrains-mono-nerd-font
+```
 ## Zsh
 1. Install `ohmyzsh`
 ```bash
