@@ -3,6 +3,10 @@
 ```bash
  brew install font-jetbrains-mono-nerd-font
 ```
+## Ripgrep
+```bash
+brew install ripgrep
+```
 ## Zsh
 1. Install `ohmyzsh`
 ```bash
