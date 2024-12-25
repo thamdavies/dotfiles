@@ -1,24 +1,36 @@
--- return {
---   {
---     "rose-pine/neovim",
---     name = "rose-pine",
---     config = function()
---       require("rose-pine").setup({
---         variant = "moon", -- auto, main, moon, or dawn
---         dark_variant = "moon", -- main, moon, or dawn
---       })
---
---       vim.cmd("colorscheme rose-pine-moon")
---     end
---   },
--- }
+function ColorMyPencils(color)
+  color = color or "rose-pine-moon"
+  vim.cmd.colorscheme(color)
+
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
+
 return {
-  "navarasu/onedark.nvim",
-  name = "onedark",
-  config = function()
-    require("onedark").setup({
-      style = "light",
-    })
-    require("onedark").load()
-  end
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    opts = {},
+    config = function()
+      ColorMyPencils()
+    end
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      require('rose-pine').setup({
+        disable_background = true,
+        styles = {
+          italic = false,
+          transparency = true,
+
+
+        }
+      })
+
+      ColorMyPencils();
+    end
+  },
 }
+
