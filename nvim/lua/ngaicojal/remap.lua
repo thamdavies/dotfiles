@@ -1,11 +1,43 @@
 local map = vim.keymap.set
+map("n", "<C-n>", "<cmd>NvimTreeFindFileToggle<CR>")
 
 vim.g.mapleader = " "
-map("n", "<C-n>", "<cmd>NvimTreeFindFileToggle<CR>")
 map("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>")
 
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
+-- A function to move selected lines down in visual mode
+function move_lines_down_visual()
+	local current_line = vim.api.nvim_win_get_cursor(0)[1]
+	local last_line = vim.api.nvim_buf_line_count(0)
+
+	local selected_lines_count = vim.fn.line("'>") - vim.fn.line("'<")
+
+	if current_line + selected_lines_count < last_line then
+		vim.api.nvim_command("'<, '>m '>+1")
+		vim.api.nvim_command("normal! gv=gv")
+	-- When we hit the bottom we just reselect the lines
+	else
+		vim.api.nvim_command("normal! gv")
+	end
+end
+
+-- A function to move selected lines up in visual mode
+function move_lines_up_visual()
+	local current_line = vim.api.nvim_win_get_cursor(0)[1]
+
+	if current_line > 1 then
+		vim.api.nvim_command("'<, '>m '<-2")
+		vim.api.nvim_command("normal! gv=gv")
+	-- When we hit the top we just reselect the lines
+	else
+		vim.api.nvim_command("normal! gv")
+	end
+end
+
+map('v', 'J', ':lua move_lines_down_visual()<CR>')
+map('v', 'K', ':lua move_lines_up_visual()<CR>')
+
+-- map("v", "J", ":m '>+1<CR>gv=gv")
+-- map("v", "K", ":m '<-2<CR>gv=gv")
 
 map("n", "J", "mzJ`z")
 map("n", "<C-d>", "<C-d>zz")
@@ -48,8 +80,6 @@ map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope Help 
 map("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "Telescope Find marks" })
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Telescope Find oldfiles" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Telescope Find in current buffer" })
-map("n", "<leader>gcm", "<cmd>Telescope git_commits<CR>", { desc = "Telescope Git commits" })
-map("n", "<leader>gst", "<cmd>Telescope git_status<CR>", { desc = "Telescope Git status" })
 map("n", "<leader>ct", "<cmd>CloakToggle<CR>", { desc = "Cloak toggle" })
 map("n", "<C-s>", "ggVG", { desc = "Select all lines" })
 map(
@@ -58,12 +88,6 @@ map(
   "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
   { desc = "Telescope Find all files" }
 )
-
-map("n", "<leader>gbl", "<cmd>Git blame<CR>")
-map("n", "<leader>ecm", function()
-  local message = vim.fn.input('Enter commit message: ')
-  vim.cmd('Git commit -m "' .. message .. '"')
-end)
 
 vim.api.nvim_set_keymap('n', '<F5>', ":lua require('dap').continue()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<F10>', ":lua require('dap').step_over()<CR>", { noremap = true, silent = true })
