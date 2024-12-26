@@ -8,14 +8,6 @@ end
 
 return {
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    opts = {},
-    config = function()
-      ColorMyPencils()
-    end
-  },
-  {
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
@@ -24,8 +16,6 @@ return {
         styles = {
           italic = false,
           transparency = true,
-
-
         }
       })
 
