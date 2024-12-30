@@ -5,7 +5,7 @@
 ```
 ## Ripgrep
 ```bash
-brew install ripgrep
+brew install ripgrep stow
 ```
 ## Zsh
 1. Install `ohmyzsh`
@@ -37,4 +37,11 @@ export PATH=~/.npm-global/bin:$PATH
 4. On the command line, update your system variables:
 ```
 source ~/.zshrc
+```
+## Usage
+```bash
+stow -v -t ~ tmux
+stow -v -t ~ nvim
+stow -v -t ~ wezterm
+stow -v -t ~ aerospace
 ```
