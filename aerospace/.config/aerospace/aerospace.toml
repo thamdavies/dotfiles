@@ -19,14 +19,6 @@ automatically-unhide-macos-hidden-apps = false
 [key-mapping]
 preset = 'qwerty'
 
-[gaps]
-inner.horizontal = 4
-inner.vertical = 5
-outer.left = [{monitor.main = 15}, {monitor.secondary = 25}, 3]
-outer.top = [{monitor.main = -20}, {monitor.secondary = 25}, 3]
-outer.bottom = [{monitor.main = 28}, {monitor.secondary = 25}, 3]
-outer.right = [{monitor.main = 15}, {monitor.secondary = 25}, 3]
-
 [mode.main.binding]
 
 alt-slash = 'layout tiles horizontal vertical'
