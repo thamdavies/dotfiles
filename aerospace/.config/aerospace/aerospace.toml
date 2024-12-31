@@ -12,7 +12,7 @@ default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = 'move-mouse monitor-lazy-center' 
+on-focus-changed = 'move-mouse monitor-lazy-center'
 
 automatically-unhide-macos-hidden-apps = false
 
@@ -22,7 +22,7 @@ preset = 'qwerty'
 [gaps]
 inner.horizontal = 4
 inner.vertical = 5
-outer.left = [{monitor.main = 15}, {monitor.secondary = 25}, ]
+outer.left = [{monitor.main = 15}, {monitor.secondary = 25}, 3]
 outer.top = [{monitor.main = -20}, {monitor.secondary = 25}, 3]
 outer.bottom = [{monitor.main = 28}, {monitor.secondary = 25}, 3]
 outer.right = [{monitor.main = 15}, {monitor.secondary = 25}, 3]
@@ -48,7 +48,7 @@ alt-shift-equal = 'resize smart +50'
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
-alt-a = 'workspace A' # Any: Docker, Postman,... 
+alt-a = 'workspace A' # Any: Docker, Postman,...
 alt-b = 'workspace B' # Browser
 alt-c = 'workspace C' # Coding
 alt-d = 'workspace D' # Document/Finder
@@ -85,8 +85,8 @@ alt-shift-semicolon = 'mode service'
 
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main'] 
-f = ['layout floating tiling', 'mode main'] 
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
 
@@ -149,7 +149,7 @@ run = 'move-node-to-workspace G'
 
 #which work space is on which monitor
 [workspace-to-monitor-force-assignment]
-W = 1 
+W = 1
 C = 'secondary'
 D = 'main'
 S = 'main'
