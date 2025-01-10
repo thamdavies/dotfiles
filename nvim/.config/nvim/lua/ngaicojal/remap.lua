@@ -6,35 +6,37 @@ map("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>")
 
 -- A function to move selected lines down in visual mode
 function move_lines_down_visual()
-	local current_line = vim.api.nvim_win_get_cursor(0)[1]
-	local last_line = vim.api.nvim_buf_line_count(0)
+ local current_line = vim.api.nvim_win_get_cursor(0)[1]
+ local last_line = vim.api.nvim_buf_line_count(0)
 
-	local selected_lines_count = vim.fn.line("'>") - vim.fn.line("'<")
+ local selected_lines_count = vim.fn.line("'>") - vim.fn.line("'<")
 
-	if current_line + selected_lines_count < last_line then
-		vim.api.nvim_command("'<, '>m '>+1")
-		vim.api.nvim_command("normal! gv=gv")
-	-- When we hit the bottom we just reselect the lines
-	else
-		vim.api.nvim_command("normal! gv")
-	end
+ if current_line + selected_lines_count < last_line then
+  vim.api.nvim_command("'<, '>m '>+1")
+  vim.api.nvim_command("normal! gv=gv")
+ -- When we hit the bottom we just reselect the lines
+ else
+  vim.api.nvim_command("normal! gv")
+ end
 end
 
 -- A function to move selected lines up in visual mode
 function move_lines_up_visual()
-	local current_line = vim.api.nvim_win_get_cursor(0)[1]
+ local current_line = vim.api.nvim_win_get_cursor(0)[1]
 
-	if current_line > 1 then
-		vim.api.nvim_command("'<, '>m '<-2")
-		vim.api.nvim_command("normal! gv=gv")
-	-- When we hit the top we just reselect the lines
-	else
-		vim.api.nvim_command("normal! gv")
-	end
+ if current_line > 1 then
+  vim.api.nvim_command("'<, '>m '<-2")
+  vim.api.nvim_command("normal! gv=gv")
+ -- When we hit the top we just reselect the lines
+ else
+  vim.api.nvim_command("normal! gv")
+ end
 end
 
 map('v', 'J', ':lua move_lines_down_visual()<CR>')
 map('v', 'K', ':lua move_lines_up_visual()<CR>')
+map('n', '<leader>1', ':lua ColorMyPencils("rose-pine")<CR>')
+map('n', '<leader>2', ':lua ColorMyPencils("tokyonight-storm")<CR>')
 
 -- map("v", "J", ":m '>+1<CR>gv=gv")
 -- map("v", "K", ":m '<-2<CR>gv=gv")
@@ -58,8 +60,8 @@ map("n", "<leader>bf", vim.lsp.buf.format)
 
 map("n", "[k", "<cmd>cnext<CR>zz")
 map("n", "[j", "<cmd>cprev<CR>zz")
-map("n", "bn", "<cmd>bnext<CR>zz")
-map("n", "bp", "<cmd>bprev<CR>zz")
+map("n", "[n", "<cmd>bnext<CR>zz")
+map("n", "[p", "<cmd>bprev<CR>zz")
 map("n", "<leader>k", "<cmd>lnext<CR>zz")
 map("n", "<leader>j", "<cmd>lprev<CR>zz")
 
@@ -98,4 +100,3 @@ vim.api.nvim_set_keymap('n', '<Leader>B', ":lua require('dap').set_breakpoint(vi
 vim.api.nvim_set_keymap('n', '<Leader>lp', ":lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>dr', ":lua require('dap').repl.open()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>du', ":lua require('dapui').toggle()<CR>", { noremap = true, silent = true })
-
