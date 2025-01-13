@@ -8,7 +8,7 @@ local home_dir = os.getenv("HOME")
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.font = wezterm.font 'JetBrainsMono Nerd Font'
+-- config.font = wezterm.font 'JetBrainsMono Nerd Font'
 config.font_size = 12
 
 config.window_background_image = home_dir .. '/.config/nvim/bg/1.jpg'
