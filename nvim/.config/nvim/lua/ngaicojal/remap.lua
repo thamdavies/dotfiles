@@ -1,8 +1,8 @@
 local map = vim.keymap.set
-map("n", "<C-n>", "<cmd>NvimTreeFindFileToggle<CR>")
+map("n", "<C-n>", "<cmd>Lexplore<CR>")
 
 vim.g.mapleader = " "
-map("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>")
+map("n", "<leader>e", "<cmd>Lexplore %:p:h<CR>")
 
 -- A function to move selected lines down in visual mode
 function move_lines_down_visual()
@@ -100,3 +100,4 @@ vim.api.nvim_set_keymap('n', '<Leader>B', ":lua require('dap').set_breakpoint(vi
 vim.api.nvim_set_keymap('n', '<Leader>lp', ":lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>dr', ":lua require('dap').repl.open()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>du', ":lua require('dapui').toggle()<CR>", { noremap = true, silent = true })
+
