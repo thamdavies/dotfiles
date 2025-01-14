@@ -38,9 +38,6 @@ map('v', 'K', ':lua move_lines_up_visual()<CR>')
 map('n', '<leader>1', ':lua ColorMyPencils("rose-pine")<CR>')
 map('n', '<leader>2', ':lua ColorMyPencils("tokyonight-storm")<CR>')
 
--- map("v", "J", ":m '>+1<CR>gv=gv")
--- map("v", "K", ":m '<-2<CR>gv=gv")
-
 map("n", "J", "mzJ`z")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
@@ -100,4 +97,3 @@ vim.api.nvim_set_keymap('n', '<Leader>B', ":lua require('dap').set_breakpoint(vi
 vim.api.nvim_set_keymap('n', '<Leader>lp', ":lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>dr', ":lua require('dap').repl.open()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>du', ":lua require('dapui').toggle()<CR>", { noremap = true, silent = true })
-

@@ -55,21 +55,6 @@ return {
             return
           end
 
-          -- if server_name == "volar" then
-          --   require("lspconfig")[server_name].setup {
-          --     capabilities = capabilities,
-          --     filetypes = {
-          --       "typescript",
-          --       "javascript",
-          --       "javascriptreact",
-          --       "typescriptreact",
-          --       "vue",
-          --       "json"
-          --     },
-          --   }
-          --   return
-          -- end
-
           require("lspconfig")[server_name].setup {
             capabilities = capabilities
           }
