@@ -70,4 +70,14 @@ return {
       ColorMyPencils()
     end
   },
+  {
+    "nickkadutskyi/jb.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("jb").setup({ transparent = true })
+      ColorMyPencils()
+    end,
+  }
 }

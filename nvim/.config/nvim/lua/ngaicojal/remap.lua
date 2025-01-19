@@ -37,6 +37,7 @@ map('v', 'J', ':lua move_lines_down_visual()<CR>')
 map('v', 'K', ':lua move_lines_up_visual()<CR>')
 map('n', '<leader>1', ':lua ColorMyPencils("rose-pine")<CR>')
 map('n', '<leader>2', ':lua ColorMyPencils("tokyonight-storm")<CR>')
+map('n', '<leader>3', ':lua ColorMyPencils("jb")<CR>')
 
 map("n", "J", "mzJ`z")
 map("n", "<C-d>", "<C-d>zz")
