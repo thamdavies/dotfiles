@@ -29,52 +29,11 @@ return {
         "lua_ls",
         "ts_ls",
         "solargraph",
-        "volar"
+        "html",
+        "cssls",
+        "jsonls",
+        "rust_analyzer",
       },
-      handlers = {
-        function(server_name) -- default handler (optional)
-          -- Check if server name is tsserver and if so, use setup with volar, else use default setup.
-          if server_name == "tsserver" then
-            require("lspconfig")[server_name].setup {
-              capabilities = capabilities,
-              init_options = {
-                plugins = {
-                  {
-                    name = "@vue/typescript-plugin",
-                    location = os.getenv("HOME") .. "/.npm-global/lib/node_modules/@vue/typescript-plugin",
-                    languages = { "javascript", "typescript", "vue" },
-                  },
-                },
-              },
-              filetypes = {
-                "javascript",
-                "typescript",
-                "vue",
-              },
-            }
-            return
-          end
-
-          require("lspconfig")[server_name].setup {
-            capabilities = capabilities
-          }
-        end,
-
-        ["lua_ls"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.lua_ls.setup {
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                runtime = { version = "Lua 5.1" },
-                diagnostics = {
-                  globals = { "vim", "it", "describe", "before_each", "after_each" },
-                }
-              }
-            }
-          }
-        end,
-      }
     })
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
