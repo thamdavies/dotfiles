@@ -1,6 +1,5 @@
-require("ngaicojal.set")
-require("ngaicojal.remap")
-require("ngaicojal.lazy_init")
+require("config.set")
+require("config.remap")
 
 -- DO.not
 -- DO NOT INCLUDE THIS
@@ -28,6 +27,8 @@ vim.filetype.add({
     templ = 'templ',
   }
 })
+
+vim.lsp.enable('html')
 
 autocmd('TextYankPost', {
   group = yank_group,
