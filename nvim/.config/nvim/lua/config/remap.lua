@@ -1,8 +1,8 @@
 local map = vim.keymap.set
-map("n", "<C-n>", "<cmd>Lexplore<CR>")
 
 vim.g.mapleader = " "
-map("n", "<leader>e", "<cmd>Lexplore %:p:h<CR>")
+map("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>")
+map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
 
 -- A function to move selected lines down in visual mode
 function move_lines_down_visual()
@@ -62,6 +62,8 @@ map("n", "[n", "<cmd>bnext<CR>zz")
 map("n", "[p", "<cmd>bprev<CR>zz")
 map("n", "<leader>k", "<cmd>lnext<CR>zz")
 map("n", "<leader>j", "<cmd>lprev<CR>zz")
+map("n", "<leader>cd", "<cmd>Copilot disable<CR>zz")
+map("n", "<leader>ce", "<cmd>Copilot enable<CR>zz")
 
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
