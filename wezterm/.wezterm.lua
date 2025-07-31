@@ -11,7 +11,8 @@ local home_dir = os.getenv("HOME")
 -- config.font = wezterm.font 'JetBrainsMono Nerd Font'
 config.font_size = 12
 
-config.window_background_image = home_dir .. '/personal/dotfiles/images/1.jpg'
+local background_image_path = os.getenv("WEZTERM_BG_IMAGE") or (home_dir .. '/personal/dotfiles/images/1.jpg')
+config.window_background_image = background_image_path
 config.enable_tab_bar = false
 
 config.window_decorations = "RESIZE"
