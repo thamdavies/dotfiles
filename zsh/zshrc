@@ -46,6 +46,7 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias brspec="bundle exec rspec"
 alias bsidekiq="bundle exec sidekiq"
 alias find_port="netstat -vanp tcp | grep"
+alias nvim="~/Applications/nvim-macos-arm64/bin/nvim"
 
 # ENV
 export LC_ALL=en_US.UTF-8
