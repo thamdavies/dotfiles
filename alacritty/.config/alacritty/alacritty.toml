@@ -1,6 +1,6 @@
 # import = ["~/.config/alacritty/rose-pine-moon.toml"]
-# import = ["~/.config/alacritty/one-dark.toml"]
-import = ["~/.config/alacritty/one-light.toml"]
+import = ["~/.config/alacritty/one-dark.toml"]
+# import = ["~/.config/alacritty/one-light.toml"]
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font" }
@@ -14,3 +14,4 @@ padding = { x = 3, y = 3 }
 [cursor]
 style = { shape = "Block", blinking = "On" }
 vi_mode_style = { shape = "Block", blinking = "On" }
+
