@@ -44,4 +44,5 @@ stow -v -t ~ tmux
 stow -v -t ~ nvim
 stow -v -t ~ wezterm
 stow -v -t ~ aerospace
+stow -v -t ~ alacritty
 ```
