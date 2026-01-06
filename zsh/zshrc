@@ -46,7 +46,6 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias brspec="bundle exec rspec"
 alias bsidekiq="bundle exec sidekiq"
 alias find_port="netstat -vanp tcp | grep"
-alias nvim="~/Applications/nvim-macos-arm64/bin/nvim"
 
 # ENV
 export LC_ALL=en_US.UTF-8
@@ -56,7 +55,6 @@ export PATH=~/.npm-global/bin:$PATH
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export WORKON_HOME=~/Environment
-export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH="$HOME/.serverless/bin:$PATH" # Added by serverless binary installer
 
 # MySQL
