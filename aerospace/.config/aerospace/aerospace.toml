@@ -19,6 +19,14 @@ automatically-unhide-macos-hidden-apps = false
 [key-mapping]
 preset = 'qwerty'
 
+[gaps]
+inner.horizontal = 4
+inner.vertical = 5
+outer.left = [{monitor."Built-in Retina Display" = 15}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
+outer.top = [{monitor."Built-in Retina Display" = 0}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
+outer.bottom = [{monitor."Built-in Retina Display" = 20}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
+outer.right = [{monitor."Built-in Retina Display" = 15}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
+
 [mode.main.binding]
 
 alt-slash = 'layout tiles horizontal vertical'
@@ -37,9 +45,6 @@ alt-shift-l = 'move right'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
 alt-a = 'workspace A' # Any: Docker, Postman,...
 alt-b = 'workspace B' # Browser
 alt-c = 'workspace C' # Coding
@@ -51,11 +56,9 @@ alt-r = 'workspace R' # Reading
 alt-s = 'workspace S' # Setting
 alt-t = 'workspace T' # Terminal
 alt-v = 'workspace V' # Edit Video
-alt-w = 'workspace W' # Work: Slack, ggmeet,...
+alt-w = 'workspace W' # Work: Slack, ggmeet, discord,...
+alt-x = 'workspace X' # VM - enjoy
 
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-a = 'move-node-to-workspace A'
 alt-shift-b = 'move-node-to-workspace B'
 alt-shift-c = 'move-node-to-workspace C'
@@ -68,6 +71,7 @@ alt-shift-s = 'move-node-to-workspace S'
 alt-shift-t = 'move-node-to-workspace T'
 alt-shift-v = 'move-node-to-workspace V'
 alt-shift-w = 'move-node-to-workspace W'
+alt-shift-x = 'move-node-to-workspace X'
 
 alt-shift-f = 'fullscreen'
 alt-tab = 'workspace-back-and-forth'
@@ -89,6 +93,10 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
+run = "move-node-to-workspace S"
+
+[[on-window-detected]]
+if.app-id ='com.mitchellh.ghostty'
 run = "move-node-to-workspace C"
 
 # [[on-window-detected]]
@@ -100,7 +108,7 @@ if.app-id = 'com.google.Chrome'
 run = "move-node-to-workspace B"
 
 [[on-window-detected]]
-if.app-id = 'org.mozilla.firefoxdeveloperedition'
+if.app-id = 'org.mozilla.firefox'
 run = "move-node-to-workspace B"
 
 [[on-window-detected]]
@@ -120,6 +128,10 @@ if.app-id = 'com.apple.iBooksX'
 run = "move-node-to-workspace R"
 
 [[on-window-detected]]
+if.app-id = 'info.sioyek.sioyek'
+run = "move-node-to-workspace R"
+
+[[on-window-detected]]
 if.app-id = 'notion.id'
 run = "move-node-to-workspace N"
 
@@ -136,12 +148,33 @@ if.app-id = 'com.googlecode.iterm2'
 run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
-if.app-id = 'org.godotengine.godot'
-run = 'move-node-to-workspace G'
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace W'
+
+[[on-window-detected]]
+if.app-id = 'com.blackmagic-design.DaVinciResolveLite'
+run = 'move-node-to-workspace V'
+
+[[on-window-detected]]
+if.app-id = 'com.obsproject.obs-studio'
+run = 'move-node-to-workspace V'
+
+[[on-window-detected]]
+if.app-id = 'com.vmware.fusion'
+run = 'move-node-to-workspace X'
+
+[[on-window-detected]]
+if.app-id = 'org.qutebrowser.qutebrowser'
+run = ['layout tiling', 'move-node-to-workspace B']
 
 #which work space is on which monitor
 [workspace-to-monitor-force-assignment]
 W = 1
 C = 'secondary'
+X = 'secondary'
 D = 'main'
 S = 'main'
+
+#join
+# alt-shift-; for service mode
+# alt-shift -> L or H,.... to merge ...
