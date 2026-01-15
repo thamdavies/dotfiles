@@ -31,3 +31,5 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "120"
 vim.cmd([[autocmd BufEnter * set formatoptions-=o]])
 
+vim.g.copilot_node_command = "/Users/thamdavies/.asdf/shims/node"
+
