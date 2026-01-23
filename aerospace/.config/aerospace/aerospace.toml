@@ -22,10 +22,6 @@ preset = 'qwerty'
 [gaps]
 inner.horizontal = 4
 inner.vertical = 5
-outer.left = [{monitor."Built-in Retina Display" = 15}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
-outer.top = [{monitor."Built-in Retina Display" = 0}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
-outer.bottom = [{monitor."Built-in Retina Display" = 20}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
-outer.right = [{monitor."Built-in Retina Display" = 15}, {monitor.secondary = 25}, {monitor."DELL S2722DC" = 25}, 3]
 
 [mode.main.binding]
 
@@ -93,15 +89,11 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace S"
+run = "move-node-to-workspace C"
 
 [[on-window-detected]]
 if.app-id ='com.mitchellh.ghostty'
 run = "move-node-to-workspace C"
-
-# [[on-window-detected]]
-# if.app-id = 'com.github.wez.wezterm'
-# run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
@@ -144,6 +136,7 @@ if.app-id = 'md.obsidian'
 run = "move-node-to-workspace N"
 
 [[on-window-detected]]
+
 if.app-id = 'com.googlecode.iterm2'
 run = 'move-node-to-workspace S'
 

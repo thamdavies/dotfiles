@@ -1,8 +1,6 @@
 local map = vim.keymap.set
-map("n", "<C-n>", "<cmd>Lexplore<CR>")
 
 vim.g.mapleader = " "
-map("n", "<leader>e", "<cmd>Lexplore %:p:h<CR>")
 
 -- A function to move selected lines down in visual mode
 function move_lines_down_visual()
@@ -33,12 +31,8 @@ function move_lines_up_visual()
 	end
 end
 
-map("v", "J", ":lua move_lines_down_visual()<CR>")
 map("v", "K", ":lua move_lines_up_visual()<CR>")
-map("n", "<leader>1", ':lua ColorMyPencils("rose-pine")<CR>')
-map("n", "<leader>2", ':lua ColorMyPencils("tokyonight-storm")<CR>')
-map("n", "<leader>3", ':lua ColorMyPencils("jb")<CR>')
-
+map("v", "J", ":lua move_lines_down_visual()<CR>")
 map("n", "J", "mzJ`z")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
@@ -60,10 +54,12 @@ map("n", "[k", "<cmd>cnext<CR>zz")
 map("n", "[j", "<cmd>cprev<CR>zz")
 map("n", "[n", "<cmd>bnext<CR>zz")
 map("n", "[p", "<cmd>bprev<CR>zz")
-map("n", "<leader>k", "<cmd>lnext<CR>zz")
-map("n", "<leader>j", "<cmd>lprev<CR>zz")
+map("n", "<C-h>", "<C-w>h<CR>zz")
+map("n", "<C-l>", "<C-w>l<CR>zz")
+map("n", "<C-j>", "<C-w>j<CR>zz")
+map("n", "<C-k>", "<C-w>k<CR>zz")
 
-map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace a selected word
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 map("n", "<leader><leader>", function()
@@ -77,28 +73,3 @@ map(
 	"<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
 	{ desc = "Telescope Find all files" }
 )
-
-vim.api.nvim_set_keymap("n", "<F5>", ":lua require('dap').continue()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<F10>", ":lua require('dap').step_over()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<F11>", ":lua require('dap').step_into()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<F12>", ":lua require('dap').terminate()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap(
-	"n",
-	"<Leader>b",
-	":lua require('dap').toggle_breakpoint()<CR>",
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"<Leader>B",
-	":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"<Leader>lp",
-	":lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap("n", "<Leader>dr", ":lua require('dap').repl.open()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>du", ":lua require('dapui').toggle()<CR>", { noremap = true, silent = true })

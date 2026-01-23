@@ -32,10 +32,8 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
-          "rust_analyzer",
-          "gopls",
-          "vtsls",
           "tailwindcss",
+          "ruby_lsp"
         },
         handlers = {
           function(server_name) -- default handler (optional)
@@ -86,6 +84,11 @@ return {
               filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "heex" },
             })
           end,
+          ["ruby_lsp"] = function ()
+            local lspconfig = require("lspconfig")
+            print("hello")
+
+          end
         }
       })
 
