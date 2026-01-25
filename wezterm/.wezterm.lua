@@ -23,6 +23,9 @@ config.window_background_image_hsb = {
   brightness = 0.03,
 }
 
+config.color_scheme = "Catppuccin Macchiato"
+
 -- and finally, return the configuration to wezterm
+
 return config
 

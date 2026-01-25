@@ -66,7 +66,6 @@ map("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
 
-map("n", "<C-s>", "ggVG", { desc = "Select all lines" })
 map(
 	"n",
 	"<leader>fa",
