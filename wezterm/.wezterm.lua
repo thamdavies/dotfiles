@@ -8,7 +8,6 @@ local home_dir = os.getenv("HOME")
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.font = wezterm.font 'Monaspace Krypton NF'
 config.font_size = 14
 
 local background_image_path = os.getenv("WEZTERM_BG_IMAGE") or (home_dir .. '/personal/dotfiles/images/1.jpg')
