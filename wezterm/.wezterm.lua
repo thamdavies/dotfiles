@@ -7,9 +7,29 @@ local home_dir = os.getenv("HOME")
 
 -- This is where you actually apply your config choices
 
--- For example, changing the color scheme:
-config.font = wezterm.font 'Monaspace Krypton NF'
 config.font_size = 14
+config.font = wezterm.font { family = 'JetbrainsMono Nerd Font' }
+
+config.font_rules = {
+  {
+    intensity = 'Bold',
+    italic = true,
+    font = wezterm.font {
+      family = 'JetbrainsMono Nerd Font',
+      weight = 'SemiBold',
+      style = 'Italic',
+    },
+  },
+  {
+    italic = true,
+    intensity = 'Normal',
+    font = wezterm.font {
+      family = 'JetbrainsMono Nerd Font',
+      style = 'Italic',
+      weight = 'Regular',
+    },
+  },
+}
 
 local background_image_path = os.getenv("WEZTERM_BG_IMAGE") or (home_dir .. '/personal/dotfiles/images/1.jpg')
 config.window_background_image = background_image_path
