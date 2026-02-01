@@ -1,5 +1,6 @@
-vim.opt.guicursor = ""
+vim.g.mapleader = " "
 
+vim.opt.guicursor = ""
 vim.opt.winborder = "rounded"
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -30,7 +31,9 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "120"
-vim.cmd([[autocmd BufEnter * set formatoptions-=o]])
 
 vim.g.copilot_node_command = "/Users/thamdavies/.asdf/shims/node"
 
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
