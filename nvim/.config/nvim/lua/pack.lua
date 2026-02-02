@@ -1,14 +1,15 @@
 local map = vim.keymap.set
 
 vim.pack.add({
-  { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/nvim-tree/nvim-tree.lua",               version = "master" },
+  { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter",        version = "main" },
   { src = "https://github.com/nvim-telescope/telescope.nvim",          version = "master" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/mason-org/mason.nvim" },
   { src = "https://github.com/L3MON4D3/LuaSnip" },
+  { src = "https://github.com/j-hui/fidget.nvim" }
 })
 
 -- Telescope
@@ -73,3 +74,7 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
+-- Fidget
+require("fidget").setup()
+
