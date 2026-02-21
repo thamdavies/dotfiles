@@ -1,8 +1,8 @@
 local map = vim.keymap.set
 
 vim.pack.add({
-  { src = "https://github.com/nvim-tree/nvim-tree.lua",               version = "master" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
+  { src = "https://github.com/nvim-tree/nvim-tree.lua",               version = "master" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter",        version = "main" },
   { src = "https://github.com/nvim-telescope/telescope.nvim",          version = "master" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -75,6 +75,5 @@ require("nvim-tree").setup({
   },
 })
 
--- Fidget
 require("fidget").setup()
 
