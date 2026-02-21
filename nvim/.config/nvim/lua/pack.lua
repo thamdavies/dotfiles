@@ -9,6 +9,7 @@ vim.pack.add({
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/mason-org/mason.nvim" },
   { src = "https://github.com/L3MON4D3/LuaSnip" },
+  { src = "https://github.com/j-hui/fidget.nvim" }
 })
 
 -- Telescope
@@ -73,3 +74,6 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
+require("fidget").setup()
+
