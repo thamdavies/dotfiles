@@ -8,14 +8,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'morhetz/gruvbox'
 Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
+Plug 'c64cosmin/Harpwn'
 
 call plug#end()
 
 let mapleader = " "
 
 autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE 
-autocmd VimEnter * hi StatusLine ctermbg=NONE guibg=NONE 
-autocmd VimEnter * hi StatusLineNC ctermbg=NONE guibg=NONE 
+autocmd VimEnter * hi StatusLine ctermbg=NONE guibg=NONE
+autocmd VimEnter * hi StatusLineNC ctermbg=NONE guibg=NONE
 
 " Fzf
 nnoremap <leader>ff :GFiles<CR>
@@ -75,6 +76,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=500
+set termguicolors
+
+" -- Codeium
+map <leader>// :CodeiumDisable<cr>
 
 " --- Navigation & Editing ---
 
@@ -454,3 +459,42 @@ nnoremap <leader>\\ :Codeium Toggle<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-b> :NERDTreeFind<CR>
 
+" Harpwn
+nnoremap <silent> <Leader>a :HarpwnAdd<CR>
+nnoremap <silent> <C-e> :HarpwnMenu<CR>
+nnoremap <silent> > :HarpwnNext 1<CR>
+nnoremap <silent> < :HarpwnNext -1<CR>
+nnoremap <silent> g1 :HarpwnGo 0<CR>
+nnoremap <silent> g2 :HarpwnGo 1<CR>
+nnoremap <silent> g3 :HarpwnGo 2<CR>
+nnoremap <silent> g4 :HarpwnGo 3<CR>
+nnoremap <silent> g5 :HarpwnGo 4<CR>
+nnoremap <silent> g6 :HarpwnGo 5<CR>
+nnoremap <silent> g7 :HarpwnGo 6<CR>
+nnoremap <silent> g8 :HarpwnGo 7<CR>
+nnoremap <silent> g9 :HarpwnGo 8<CR>
+nnoremap <silent> g0 :HarpwnGo 9<CR>
+nnoremap <silent> <Leader>H1 :HarpwnSet 0<CR>
+nnoremap <silent> <Leader>H2 :HarpwnSet 1<CR>
+nnoremap <silent> <Leader>H3 :HarpwnSet 2<CR>
+nnoremap <silent> <Leader>H4 :HarpwnSet 3<CR>
+nnoremap <silent> <Leader>H5 :HarpwnSet 4<CR>
+nnoremap <silent> <Leader>H6 :HarpwnSet 5<CR>
+nnoremap <silent> <Leader>H7 :HarpwnSet 6<CR>
+nnoremap <silent> <Leader>H8 :HarpwnSet 7<CR>
+nnoremap <silent> <Leader>H9 :HarpwnSet 8<CR>
+nnoremap <silent> <Leader>H0 :HarpwnSet 9<CR>
+nnoremap <silent> <Leader>Hs :HarpwnSave<CR>
+nnoremap <silent> <Leader>Hl :HarpwnLoad<CR>
+
+"this autoloads the session when you open the menu
+let g:HarpwnLoaded = 0
+autocmd SessionLoadPost * let g:HarpwnLoaded = 0
+autocmd VimLeave * exec "HarpwnSave"
+function! HarpwnMenuOpen()
+	if g:HarpwnLoaded == 0
+		call _c64cosmin_Harpwn_ReadSession()
+		let g:HarpwnLoaded = 1
+	endif
+	call _c64cosmin_Harpwn_Menu()
+endfunction
