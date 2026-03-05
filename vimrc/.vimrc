@@ -8,23 +8,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'morhetz/gruvbox'
 Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
-<<<<<<< HEAD
 Plug 'c64cosmin/Harpwn'
-=======
->>>>>>> main
 
 call plug#end()
 
 let mapleader = " "
 
 autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE 
-<<<<<<< HEAD
-autocmd VimEnter * hi StatusLine ctermbg=NONE guibg=NONE
-autocmd VimEnter * hi StatusLineNC ctermbg=NONE guibg=NONE
-=======
 autocmd VimEnter * hi StatusLine ctermbg=NONE guibg=NONE 
 autocmd VimEnter * hi StatusLineNC ctermbg=NONE guibg=NONE 
->>>>>>> main
 
 " Fzf
 nnoremap <leader>ff :GFiles<CR>
@@ -84,13 +76,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=500
-<<<<<<< HEAD
 set termguicolors
 
 " -- Codeium
 map <leader>// :CodeiumDisable<cr>
-=======
->>>>>>> main
 
 " --- Navigation & Editing ---
 
@@ -470,7 +459,6 @@ nnoremap <leader>\\ :Codeium Toggle<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-b> :NERDTreeFind<CR>
 
-<<<<<<< HEAD
 " Harpwn
 nnoremap <silent> <Leader>a :HarpwnAdd<CR>
 nnoremap <silent> <C-e> :HarpwnMenu<CR>
@@ -510,5 +498,4 @@ function! HarpwnMenuOpen()
 	endif
 	call _c64cosmin_Harpwn_Menu()
 endfunction
-=======
->>>>>>> main
+
