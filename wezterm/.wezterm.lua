@@ -7,8 +7,13 @@ local home_dir = os.getenv("HOME")
 
 -- This is where you actually apply your config choices
 
+<<<<<<< HEAD
 config.font_size = 15
 config.font = wezterm.font { family = 'Maple Mono NF' }
+=======
+config.font_size = 14
+config.font = wezterm.font { family = 'JetbrainsMono Nerd Font' }
+>>>>>>> main
 
 local background_image_path = os.getenv("WEZTERM_BG_IMAGE") or (home_dir .. '/personal/dotfiles/images/1.jpg')
 config.window_background_image = background_image_path
