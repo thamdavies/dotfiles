@@ -1,0 +1,5 @@
+- LSP
+- Tìm files, tìm text, replace text
+- Tree
+- Đánh dấu file đang sử dụng
+- Colorscheme
