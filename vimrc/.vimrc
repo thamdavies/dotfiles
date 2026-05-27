@@ -1,7 +1,6 @@
 call plug#begin()
 
 " List your plugins here
-Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -454,11 +453,6 @@ endfunction
 xnoremap J :call MoveLinesDownVisual()<CR>
 xnoremap K :call MoveLinesUpVisual()<CR>
 
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <leader>\\ :Codeium Toggle<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-b> :NERDTreeFind<CR>
-
 " Harpwn
 nnoremap <silent> <Leader>a :HarpwnAdd<CR>
 nnoremap <silent> <C-e> :HarpwnMenu<CR>
@@ -491,6 +485,7 @@ nnoremap <silent> <Leader>Hl :HarpwnLoad<CR>
 let g:HarpwnLoaded = 0
 autocmd SessionLoadPost * let g:HarpwnLoaded = 0
 autocmd VimLeave * exec "HarpwnSave"
+
 function! HarpwnMenuOpen()
 	if g:HarpwnLoaded == 0
 		call _c64cosmin_Harpwn_ReadSession()

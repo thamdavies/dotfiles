@@ -3,6 +3,9 @@ vim.cmd("autocmd ColorScheme * highlight Normal guibg=NONE ctermbg=NONE")
 vim.cmd("autocmd ColorScheme * highlight NormalFloat guibg=NONE ctermbg=NONE") -- for floating windows
 vim.cmd [[set completeopt+=menuone,noselect,popup]]
 
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'svelte', 'markdown', 'lua', 'rust', 'typst', 'typescript', 'javascript', 'c', 'cpp', 'glsl', 'zig', 'python', 'ruby' },
   callback = function() vim.treesitter.start() end,
@@ -26,5 +29,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
       client.server_capabilities.completionProvider.triggerCharacters = chars
       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
     end
+  end,
+})
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking text",
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
   end,
 })

@@ -22,6 +22,7 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.bashrc ]] || source ~/.bashrc
 
 # User configuration
 
@@ -56,6 +57,7 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export WORKON_HOME=~/Environment
 export PATH="$HOME/.serverless/bin:$PATH" # Added by serverless binary installer
+export PATH="$HOME/personal/bin:$PATH"
 
 # MySQL
 if [ -d "/usr/local/opt/mysql-client@8.4/bin" ]; then
@@ -90,3 +92,7 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 . ${ASDF_DATA_DIR:-$HOME/.asdf/plugins/golang/set-env.zsh}
+
+# Added by Antigravity
+export PATH="/Users/thamdavies/.antigravity/antigravity/bin:$PATH"
+alias lzd='lazydocker'

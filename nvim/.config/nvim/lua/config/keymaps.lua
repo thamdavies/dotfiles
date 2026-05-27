@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 map("x", "<leader>p", [["_dP]])
-map({ "n", "v" }, "<leader>y", [["+y]])
+map({ "n", "v" }, "<leader>y", '"+y')
 map("n", "<leader>Y", [["+Y]])
 map({ "n", "v" }, "<leader>d", [["_d]])
 
@@ -43,9 +43,6 @@ end
 
 map("n", "<leader>\\", pack_clean)
 
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
-map("n", "<C-b>", "<cmd>NvimTreeFindFile<CR>")
-
 map('n', 'gd', vim.lsp.buf.definition, {})
 map('n', 'gD', vim.lsp.buf.declaration, {})
 map('n', 'gi', vim.lsp.buf.implementation, {})
@@ -57,3 +54,13 @@ map('n', '<leader>ca', vim.lsp.buf.code_action, {})
 map('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, { desc = 'LSP format file' })
 map('v', '<leader>lf', function() vim.lsp.buf.format { async = true } end, { desc = 'LSP format selection' })
 map('n', '<leader>li', '<cmd>checkhealth vim.lsp<CR>', { desc = 'LSP info' })
+
+map({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+
+-- \ + a
+map({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+map("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+map("n", "-", "<CMD>Oil<CR>", {
+  desc = "Open parent directory",
+})

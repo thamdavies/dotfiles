@@ -160,7 +160,7 @@ run = 'move-node-to-workspace X'
 if.app-id = 'org.qutebrowser.qutebrowser'
 run = ['layout tiling', 'move-node-to-workspace B']
 
-#which work space is on which monitor
+# which work space is on which monitor
 [workspace-to-monitor-force-assignment]
 W = 1
 C = 'secondary'

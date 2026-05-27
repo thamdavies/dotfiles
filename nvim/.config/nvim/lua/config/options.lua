@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus" -- Sync with system clipboard
+vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.guicursor = ""
 vim.opt.winborder = "rounded"
 vim.opt.nu = true
@@ -30,9 +32,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "120"
-
-vim.g.copilot_node_command = "/Users/thamdavies/.asdf/shims/node"
+vim.opt.colorcolumn = "80"
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1

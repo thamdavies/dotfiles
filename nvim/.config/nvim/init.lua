@@ -1,9 +1,9 @@
 require "config.init"
 
-vim.pack.add({{ src = "https://github.com/navarasu/onedark.nvim" }})
+vim.pack.add({{ src = "https://github.com/ellisonleao/gruvbox.nvim" }})
 
-require "onedark".setup({ transparent = true })
-require('onedark').load()
+require "gruvbox".setup({ transparent_mode = true })
+require('gruvbox').load()
 
 -- Load pack
-require "pack"
+require "config.pack"
