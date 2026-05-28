@@ -13,6 +13,7 @@ vim.pack.add({
   { src = "https://github.com/olimorris/codecompanion.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },
+  { src = "https://github.com/epwalsh/obsidian.nvim" },
 })
 
 -- Mini Things
@@ -90,3 +91,13 @@ vim.keymap.set("n", "<M-9>", function() harpoon:list():select(9) end)
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+
+-- Obsidian
+require("obsidian").setup({
+  workspaces = {
+    {
+      name = "main",
+      path = "~/OneDrive/Personal/Obsidian/Vault/main",
+    },
+  },
+})
