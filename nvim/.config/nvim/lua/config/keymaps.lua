@@ -1,4 +1,7 @@
 local map = vim.keymap.set
+local harpoon = require("harpoon")
+local luasnip = require("luasnip")
+local cmp = require("cmp")
 
 map("x", "<leader>p", [["_dP]])
 map({ "n", "v" }, "<leader>y", '"+y')
@@ -64,3 +67,83 @@ map("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true
 map("n", "-", "<CMD>Oil<CR>", {
   desc = "Open parent directory",
 })
+
+cmp.setup({
+  mapping = {
+   ['<CR>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+            if luasnip.expandable() then
+                luasnip.expand()
+            else
+                cmp.confirm({
+                    select = true,
+                })
+            end
+        else
+            fallback()
+        end
+    end),
+
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.locally_jumpable(1) then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+  },
+})
+
+vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<M-1>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<M-2>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<M-3>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<M-4>", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<M-5>", function() harpoon:list():select(5) end)
+vim.keymap.set("n", "<M-6>", function() harpoon:list():select(6) end)
+vim.keymap.set("n", "<M-7>", function() harpoon:list():select(7) end)
+vim.keymap.set("n", "<M-8>", function() harpoon:list():select(8) end)
+vim.keymap.set("n", "<M-9>", function() harpoon:list():select(9) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+
+
+vim.keymap.set("n", "<leader>ff", function()
+  MiniPick.builtin.files()
+end, { desc = "Find files" })
+
+vim.keymap.set("n", "<leader>fw", function()
+  MiniPick.builtin.grep_live()
+end, { desc = "Live grep" })
+
+vim.keymap.set("n", "<leader>fb", function()
+  MiniPick.builtin.buffers()
+end, { desc = "Buffers" })
+
+vim.keymap.set("n", "<leader>fh", function()
+  MiniPick.builtin.help()
+end, { desc = "Help tags" })
+
+vim.keymap.set("n", "<leader>fr", function()
+  MiniPick.builtin.resume()
+end, { desc = "Resume picker" })
+
+vim.keymap.set("n", "<leader>fo", function()
+  MiniPick.builtin.oldfiles()
+end, { desc = "Recent files" })
+

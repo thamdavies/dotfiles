@@ -95,4 +95,3 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 # Added by Antigravity
 export PATH="/Users/thamdavies/.antigravity/antigravity/bin:$PATH"
-alias lzd='lazydocker'
