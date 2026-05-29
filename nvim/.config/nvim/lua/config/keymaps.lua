@@ -113,44 +113,44 @@ cmp.setup({
   },
 })
 
-vim.keymap.set("n", "<leader>h", function() harpoon:list():add() end)
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-vim.keymap.set("n", "<M-1>", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<M-2>", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<M-3>", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<M-4>", function() harpoon:list():select(4) end)
-vim.keymap.set("n", "<M-5>", function() harpoon:list():select(5) end)
-vim.keymap.set("n", "<M-6>", function() harpoon:list():select(6) end)
-vim.keymap.set("n", "<M-7>", function() harpoon:list():select(7) end)
-vim.keymap.set("n", "<M-8>", function() harpoon:list():select(8) end)
-vim.keymap.set("n", "<M-9>", function() harpoon:list():select(9) end)
+map("n", "<leader>h", function() harpoon:list():add() end)
+map("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+map("n", "<M-1>", function() harpoon:list():select(1) end)
+map("n", "<M-2>", function() harpoon:list():select(2) end)
+map("n", "<M-3>", function() harpoon:list():select(3) end)
+map("n", "<M-4>", function() harpoon:list():select(4) end)
+map("n", "<M-5>", function() harpoon:list():select(5) end)
+map("n", "<M-6>", function() harpoon:list():select(6) end)
+map("n", "<M-7>", function() harpoon:list():select(7) end)
+map("n", "<M-8>", function() harpoon:list():select(8) end)
+map("n", "<M-9>", function() harpoon:list():select(9) end)
 
 -- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
-vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+map("n", "<C-S-P>", function() harpoon:list():prev() end)
+map("n", "<C-S-N>", function() harpoon:list():next() end)
 
 
-vim.keymap.set("n", "<leader>ff", function()
+map("n", "<leader>ff", function()
   MiniPick.builtin.files()
 end, { desc = "Find files" })
 
-vim.keymap.set("n", "<leader>fw", function()
+map("n", "<leader>fw", function()
   MiniPick.builtin.grep_live()
 end, { desc = "Live grep" })
 
-vim.keymap.set("n", "<leader>fb", function()
+map("n", "<leader>fb", function()
   MiniPick.builtin.buffers()
 end, { desc = "Buffers" })
 
-vim.keymap.set("n", "<leader>fh", function()
+map("n", "<leader>fh", function()
   MiniPick.builtin.help()
 end, { desc = "Help tags" })
 
-vim.keymap.set("n", "<leader>fr", function()
+map("n", "<leader>fr", function()
   MiniPick.builtin.resume()
 end, { desc = "Resume picker" })
 
-vim.keymap.set("n", "<leader>fo", function()
+map("n", "<leader>fo", function()
   MiniPick.builtin.oldfiles()
 end, { desc = "Recent files" })
 
