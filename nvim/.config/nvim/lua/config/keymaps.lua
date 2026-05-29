@@ -64,12 +64,12 @@ map("n", "-", "<CMD>Oil<CR>", {
   desc = "Open parent directory",
 })
 
--- Các lệnh dùng được ở cả Normal và Visual mode
+-- Normal and Visual mode
 map({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "AI Chat Toggle" })
 map({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionActions<CR>", { desc = "AI Action Palette" })
 map({ "n", "v" }, "<leader>ai", "<cmd>CodeCompanion<CR>", { desc = "AI Inline Prompt" })
 
--- Các lệnh CHỈ dành riêng cho Visual Mode (Sửa lại cú pháp phát lệnh)
+-- Visual mode only
 map("v", "<leader>ae", ":<C-u>CodeCompanion /explain<CR>", { desc = "AI Explain Selection" })
 map("v", "<leader>af", ":<C-u>CodeCompanion /fix<CR>", { desc = "AI Fix Selection" })
 map("v", "<leader>at", ":<C-u>CodeCompanion /tests<CR>", { desc = "AI Generate Tests" })
