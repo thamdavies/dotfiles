@@ -58,15 +58,22 @@ map('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, { des
 map('v', '<leader>lf', function() vim.lsp.buf.format { async = true } end, { desc = 'LSP format selection' })
 map('n', '<leader>li', '<cmd>checkhealth vim.lsp<CR>', { desc = 'LSP info' })
 
-map({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-
--- \ + a
-map({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
 map("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
 
 map("n", "-", "<CMD>Oil<CR>", {
   desc = "Open parent directory",
 })
+
+-- Các lệnh dùng được ở cả Normal và Visual mode
+map({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "AI Chat Toggle" })
+map({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionActions<CR>", { desc = "AI Action Palette" })
+map({ "n", "v" }, "<leader>ai", "<cmd>CodeCompanion<CR>", { desc = "AI Inline Prompt" })
+
+-- Các lệnh CHỈ dành riêng cho Visual Mode (Sửa lại cú pháp phát lệnh)
+map("v", "<leader>ae", ":<C-u>CodeCompanion /explain<CR>", { desc = "AI Explain Selection" })
+map("v", "<leader>af", ":<C-u>CodeCompanion /fix<CR>", { desc = "AI Fix Selection" })
+map("v", "<leader>at", ":<C-u>CodeCompanion /tests<CR>", { desc = "AI Generate Tests" })
+map("v", "<leader>aA", ":<C-u>CodeCompanionChat Add<CR>", { desc = "AI Add to Chat" })
 
 cmp.setup({
   mapping = {
@@ -106,7 +113,7 @@ cmp.setup({
   },
 })
 
-vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<leader>h", function() harpoon:list():add() end)
 vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 vim.keymap.set("n", "<M-1>", function() harpoon:list():select(1) end)
 vim.keymap.set("n", "<M-2>", function() harpoon:list():select(2) end)

@@ -6,6 +6,7 @@ vim.pack.add({
   { src = 'https://github.com/nvim-mini/mini.animate', version = 'stable' },
   { src = 'https://github.com/nvim-mini/mini.pairs', version = 'stable' },
   { src = 'https://github.com/nvim-mini/mini.indentscope', version = 'stable' },
+  { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/mason-org/mason.nvim" },
@@ -31,6 +32,9 @@ require("mini.pick").setup({
 require('mini.animate').setup()
 require('mini.pairs').setup()
 require('mini.indentscope').setup()
+
+-- Markdown Renderer
+require("render-markdown").setup()
 
 -- File Explorer
 require("oil").setup()
