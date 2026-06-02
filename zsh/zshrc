@@ -71,7 +71,9 @@ elif [ -f "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]; then
   . "/opt/homebrew/opt/asdf/libexec/asdf.sh"
 fi
 
-# Python environment
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+ #Python environment
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
   source /usr/local/bin/virtualenvwrapper.sh
 fi
