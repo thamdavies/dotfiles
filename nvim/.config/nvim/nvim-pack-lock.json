@@ -26,10 +26,6 @@
       "src": "https://github.com/ThePrimeagen/harpoon",
       "version": "'harpoon2'"
     },
-    "mason.nvim": {
-      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
-      "src": "https://github.com/mason-org/mason.nvim"
-    },
     "mini.animate": {
       "rev": "0365de8b69331c25d0d0d7573407a7dc7719e578",
       "src": "https://github.com/nvim-mini/mini.animate",
@@ -58,13 +54,10 @@
       "rev": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
       "src": "https://github.com/hrsh7th/nvim-cmp"
     },
-    "nvim-lspconfig": {
-      "rev": "3f58aeca0c6ece8a9fb8782ea3fcb6024f285be3",
-      "src": "https://github.com/neovim/nvim-lspconfig"
-    },
     "nvim-treesitter": {
-      "rev": "4967fa48b0fe7a7f92cee546c76bb4bb61bb14d5",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": "'main'"
     },
     "obsidian.nvim": {
       "rev": "726b60c89f4bafef267a714ea1faa1335bdd414a",

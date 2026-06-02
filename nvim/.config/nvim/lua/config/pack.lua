@@ -7,9 +7,7 @@ vim.pack.add({
   { src = 'https://github.com/nvim-mini/mini.pairs', version = 'stable' },
   { src = 'https://github.com/nvim-mini/mini.indentscope', version = 'stable' },
   { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/mason-org/mason.nvim" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
   { src = "https://github.com/rafamadriz/friendly-snippets" },
   { src = "https://github.com/L3MON4D3/LuaSnip" },
   { src = "https://github.com/j-hui/fidget.nvim" },
@@ -42,9 +40,6 @@ require("oil").setup()
 -- LuaSnip
 require("luasnip").setup({ enable_autosnippets = true })
 require("luasnip.loaders.from_vscode").lazy_load()
-
--- Mason
-require "mason".setup()
 
 -- Lsp
 vim.lsp.enable({

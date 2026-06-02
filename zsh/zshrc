@@ -99,3 +99,4 @@ export CPPFLAGS="-I/opt/homebrew/opt/readline/include"
 
 # Added by Antigravity
 export PATH="/Users/thamdavies/.antigravity/antigravity/bin:$PATH"
+eval "$(/opt/homebrew/bin/brew shellenv)"
