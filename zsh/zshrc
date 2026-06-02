@@ -87,11 +87,15 @@ if [ -f /usr/local/bin/terraform ]; then
   complete -o nospace -C /usr/local/bin/terraform terraform
 fi
 
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
-. ${ASDF_DATA_DIR:-$HOME/.asdf/plugins/golang/set-env.zsh}
+# brew install openssl@3 readline libyaml gmp tailspin
+export LDFLAGS="-L/opt/homebrew/opt/readline/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/readline/include"
+
+# . ${ASDF_DATA_DIR:-$HOME/.asdf/plugins/golang/set-env.zsh}
 
 # Added by Antigravity
 export PATH="/Users/thamdavies/.antigravity/antigravity/bin:$PATH"
