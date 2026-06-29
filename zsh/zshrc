@@ -102,3 +102,23 @@ export CPPFLAGS="-I/opt/homebrew/opt/readline/include"
 # Added by Antigravity
 export PATH="/Users/thamdavies/.antigravity/antigravity/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# opencode
+export PATH=/Users/tham/.opencode/bin:$PATH
+
+# functions
+# Automatically generate conventional commit messages using GitHub Copilot
+git-cc() {
+    if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        echo "Error: Not a Git repository." >&2
+        return 1
+    fi
+
+    if git diff --cached --quiet; then
+        echo "Error: No staged changes. Run 'git add' first." >&2
+        return 1
+    fi
+
+    echo "Generating conventional commit message..."
+    printf "\n" | gh copilot -p "Write a concise conventional commit message for these changes: $(git diff --staged)"
+}
