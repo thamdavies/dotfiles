@@ -5,9 +5,9 @@
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
     "codecompanion.nvim": {
-      "rev": "bc82fbca915f28467a2e2e74e11845ce20d8017c",
+      "rev": "9a8e8602a7c72d10a827880fbb6fcd8bfa3830c7",
       "src": "https://github.com/olimorris/codecompanion.nvim",
-      "version": "19.0.0 - 20.0.0"
+      "version": "'main'"
     },
     "fidget.nvim": {
       "rev": "7fa433a83118a70fe24c1ce88d5f0bd3453c0970",
@@ -26,9 +26,18 @@
       "src": "https://github.com/ThePrimeagen/harpoon",
       "version": "'harpoon2'"
     },
+    "image.nvim": {
+      "rev": "88351f1f7d9dbae286e671ce3690a49660dd8a5c",
+      "src": "https://github.com/3rd/image.nvim"
+    },
     "mini.animate": {
       "rev": "0365de8b69331c25d0d0d7573407a7dc7719e578",
       "src": "https://github.com/nvim-mini/mini.animate",
+      "version": "'stable'"
+    },
+    "mini.icons": {
+      "rev": "e56797f90192d81f1fda02e662fc3e8e3d775027",
+      "src": "https://github.com/nvim-mini/mini.icons",
       "version": "'stable'"
     },
     "mini.indentscope": {

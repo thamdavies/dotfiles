@@ -1,0 +1,11 @@
+WRN 2026-08-11T14:04:33.637 ?.28807    server_start:197: Failed to start server: operation not permitted: /Users/tham/.vscode/tmp/tmp_vscode_5/nvim.tham/OWt68p/nvim.28807.0
+WRN 2026-08-11T14:04:40.468 ?.28940    server_start:197: Failed to start server: operation not permitted: /Users/tham/.vscode/tmp/tmp_vscode_5/nvim.tham/Ed2xQf/nvim.28940.0
+WRN 2026-08-11T14:04:47.375 ?.29086    server_start:197: Failed to start server: operation not permitted: /Users/tham/.vscode/tmp/tmp_vscode_5/nvim.tham/AHCnSU/nvim.29086.0
+WRN 2026-08-11T14:09:10.732 ?.31449    server_start:197: Failed to start server: operation not permitted: /Users/tham/.vscode/tmp/tmp_vscode_5/nvim.tham/nKG8KL/nvim.31449.0
+WRN 2026-08-11T14:10:48.312 ?.32450    server_start:197: Failed to start server: operation not permitted: /Users/tham/.vscode/tmp/tmp_vscode_5/nvim.tham/99qXCk/nvim.32450.0
+WRN 2026-08-13T14:14:57.571 ?.28896    server_start:197: Failed to start server: operation not permitted: /Users/tham/.vscode/tmp/tmp_vscode_3/nvim.tham/92HcHb/nvim.28896.0
+WRN 2026-08-13T14:15:06.305 ?.29058    server_start:197: Failed to start server: operation not permitted: /Users/tham/.vscode/tmp/tmp_vscode_3/nvim.tham/iKtyJx/nvim.29058.0
+WRN 2026-08-13T14:18:30.981 ?.31124    server_start:197: Failed to start server: operation not permitted: /Users/tham/.vscode/tmp/tmp_vscode_3/nvim.tham/nBXjxc/nvim.31124.0
+WRN 2026-08-13T14:18:41.246 ?.31283    server_start:197: Failed to start server: operation not permitted: /Users/tham/.vscode/tmp/tmp_vscode_3/nvim.tham/DhV7uJ/nvim.31283.0
+WRN 2026-08-13T14:18:48.002 ?.31432    server_start:197: Failed to start server: operation not permitted: /Users/tham/.vscode/tmp/tmp_vscode_3/nvim.tham/3GxpZS/nvim.31432.0
+WRN 2026-08-13T14:19:00.079 ?.31809    server_start:197: Failed to start server: operation not permitted: /Users/tham/.vscode/tmp/tmp_vscode_3/nvim.tham/sEIaU7/nvim.31809.0
