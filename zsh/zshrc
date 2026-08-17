@@ -72,7 +72,9 @@ elif [ -f "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]; then
   . "/opt/homebrew/opt/asdf/libexec/asdf.sh"
 fi
 
-# Python environment
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+ #Python environment
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
   source /usr/local/bin/virtualenvwrapper.sh
 fi
@@ -88,11 +90,36 @@ if [ -f /usr/local/bin/terraform ]; then
   complete -o nospace -C /usr/local/bin/terraform terraform
 fi
 
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
-. ${ASDF_DATA_DIR:-$HOME/.asdf/plugins/golang/set-env.zsh}
+# brew install openssl@3 readline libyaml gmp tailspin
+export LDFLAGS="-L/opt/homebrew/opt/readline/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/readline/include"
+
+. ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.zsh
 
 # Added by Antigravity
 export PATH="/Users/thamdavies/.antigravity/antigravity/bin:$PATH"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# opencode
+export PATH=/Users/tham/.opencode/bin:$PATH
+
+# functions
+# Automatically generate conventional commit messages using GitHub Copilot
+git-cc() {
+    if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        echo "Error: Not a Git repository." >&2
+        return 1
+    fi
+
+    if git diff --cached --quiet; then
+        echo "Error: No staged changes. Run 'git add' first." >&2
+        return 1
+    fi
+
+    echo "Generating conventional commit message..."
+    printf "\n" | gh copilot -p "Write a concise conventional commit message for these changes: $(git diff --staged)"
+}

@@ -3,9 +3,6 @@ vim.cmd("autocmd ColorScheme * highlight Normal guibg=NONE ctermbg=NONE")
 vim.cmd("autocmd ColorScheme * highlight NormalFloat guibg=NONE ctermbg=NONE") -- for floating windows
 vim.cmd [[set completeopt+=menuone,noselect,popup]]
 
--- Expand 'cc' into 'CodeCompanion' in the command line
-vim.cmd([[cab cc CodeCompanion]])
-
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'svelte', 'markdown', 'lua', 'rust', 'typst', 'typescript', 'javascript', 'c', 'cpp', 'glsl', 'zig', 'python', 'ruby' },
   callback = function() vim.treesitter.start() end,
