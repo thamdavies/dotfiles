@@ -58,6 +58,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export WORKON_HOME=~/Environment
 export PATH="$HOME/.serverless/bin:$PATH" # Added by serverless binary installer
 export PATH="$HOME/personal/bin:$PATH"
+export PATH="/Users/thamdavies/.local/bin:$PATH"
 
 # MySQL
 if [ -d "/usr/local/opt/mysql-client@8.4/bin" ]; then

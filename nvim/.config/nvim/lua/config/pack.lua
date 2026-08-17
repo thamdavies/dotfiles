@@ -19,6 +19,7 @@ vim.pack.add({
   { src = "https://github.com/epwalsh/obsidian.nvim" },
   { src = "https://github.com/hrsh7th/nvim-cmp" },
   { src = "https://github.com/monkoose/neocodeium" },
+  { src = "https://github.com/sotte/presenting.nvim" }
 })
 
 -- Mini Things
@@ -59,7 +60,7 @@ require("fidget").setup()
 
 -- AI
 require("codecompanion").setup()
-require("neocodeium").setup()
+-- require("neocodeium").setup()
 
 -- Harpoon
 local harpoon = require("harpoon")
@@ -75,5 +76,11 @@ require("obsidian").setup({
   },
 })
 
-require "config.keymaps"
+-- Slides
+require('presenting').setup({
+  options = {
+      width = vim.o.columns,
+  },
+})
 
+require "config.keymaps"

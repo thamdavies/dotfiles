@@ -154,3 +154,5 @@ map("n", "<leader>fo", function()
   MiniPick.builtin.oldfiles()
 end, { desc = "Recent files" })
 
+-- 'n' = normal mode
+map('n', "<leader>s", ":Presenting<CR>", { silent = true, noremap = true })
