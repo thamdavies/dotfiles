@@ -22,6 +22,7 @@ vim.pack.add({
   { src = "https://github.com/sotte/presenting.nvim" },
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
   { src = "https://github.com/tpope/vim-fugitive" },
+  { src = "https://github.com/sindrets/diffview.nvim" },
 })
 
 -- Mini Things
@@ -209,7 +210,7 @@ require("gitsigns").setup({
     bmap("n", "<leader>gp", gs.preview_hunk, "Preview hunk")
     bmap("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame line")
     bmap("n", "<leader>gB", gs.toggle_current_line_blame, "Toggle inline blame")
-    bmap("n", "<leader>gd", gs.diffthis, "Diff against index")
+    bmap("n", "<leader>gD", gs.diffthis, "Diff against index")
   end,
 })
 
@@ -218,3 +219,5 @@ map("n", "<leader>gg", "<cmd>Git<CR>", { desc = "Git status" })
 map("n", "<leader>gc", "<cmd>Git commit<CR>", { desc = "Git commit" })
 map("n", "<leader>gl", "<cmd>Git log --oneline<CR>", { desc = "Git log" })
 map("n", "<leader>gP", "<cmd>Git push<CR>", { desc = "Git push" })
+map("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Open Diffview" })
+map("n", "<leader>gq", "<cmd>DiffviewClose<CR>", { desc = "Close Diffview" })
