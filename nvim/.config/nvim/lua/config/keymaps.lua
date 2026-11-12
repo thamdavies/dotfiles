@@ -123,7 +123,7 @@ map("n", "<leader>ff", function()
 end, { desc = "Find files" })
 
 map("n", "<leader>fw", function()
-  MiniPick.builtin.grep_live()
+  MiniPick.builtin.grep_live({ method = "plain" })
 end, { desc = "Live grep" })
 
 map("n", "<leader>fb", function()

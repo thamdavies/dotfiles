@@ -1,173 +1,97 @@
-after-login-command = []
-after-startup-command = []
-
+# Tự động chạy AeroSpace khi đăng nhập macOS
 start-at-login = true
 
+# Tối ưu hóa bố cục cửa sổ (giúp các cửa sổ xếp gọn gàng hơn)
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-accordion-padding = 30
-
-default-root-container-layout = 'tiles'
-default-root-container-orientation = 'auto'
-
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = 'move-mouse monitor-lazy-center'
-
-automatically-unhide-macos-hidden-apps = false
-
-[key-mapping]
-preset = 'qwerty'
-
+# Khoảng cách (padding) giữa các cửa sổ và viền màn hình (đơn vị: pixel)
+# Đặt bằng 0 nếu bạn muốn cửa sổ sát mép, tràn màn hình tối đa
 [gaps]
-inner.horizontal = 4
-inner.vertical = 5
+inner.horizontal = 0
+inner.vertical =   0
+outer.left =       0
+outer.bottom =     0
+outer.top =        0
+outer.right =      0
 
+# ==============================================================================
+# PHÍM TẮT CHÍNH (Sử dụng phím Alt / Option)
+# ==============================================================================
 [mode.main.binding]
 
-alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
-
+# 1. Di chuyển tiêu điểm (Focus) giữa các cửa sổ theo hướng Vim
 alt-h = 'focus left'
 alt-j = 'focus down'
 alt-k = 'focus up'
 alt-l = 'focus right'
 
+# 2. Di chuyển vị trí cửa sổ (Move)
 alt-shift-h = 'move left'
 alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
-alt-shift-minus = 'resize smart -50'
-alt-shift-equal = 'resize smart +50'
+# 3. Thay đổi kích thước cửa sổ nhanh
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
 
-alt-a = 'workspace A' # Any: Docker, Postman,...
-alt-b = 'workspace B' # Browser
-alt-c = 'workspace C' # Coding
-alt-d = 'workspace D' # Document/Finder
-alt-g = 'workspace G' # Game
-alt-m = 'workspace M' # Music
-alt-n = 'workspace N' # NOTE
-alt-r = 'workspace R' # Reading
-alt-s = 'workspace S' # Setting
-alt-t = 'workspace T' # Terminal
-alt-v = 'workspace V' # Edit Video
-alt-w = 'workspace W' # Work: Slack, ggmeet, discord,...
-alt-x = 'workspace X' # VM - enjoy
+# 4. Phóng to tràn màn hình (Fullscreen của AeroSpace - không tạo Space ảo macOS)
+alt-f = 'fullscreen'
 
-alt-shift-a = 'move-node-to-workspace A'
-alt-shift-b = 'move-node-to-workspace B'
-alt-shift-c = 'move-node-to-workspace C'
-alt-shift-d = 'move-node-to-workspace D'
-alt-shift-g = 'move-node-to-workspace G'
-alt-shift-m = 'move-node-to-workspace M'
-alt-shift-n = 'move-node-to-workspace N'
-alt-shift-r = 'move-node-to-workspace R'
-alt-shift-s = 'move-node-to-workspace S'
-alt-shift-t = 'move-node-to-workspace T'
-alt-shift-v = 'move-node-to-workspace V'
-alt-shift-w = 'move-node-to-workspace W'
-alt-shift-x = 'move-node-to-workspace X'
+# 5. Chuyển đổi kiểu sắp xếp (Layout)
+alt-slash = 'layout tiles horizontal vertical' # Chia đôi ngang / dọc
+alt-comma = 'layout accordion horizontal vertical' # Xếp chồng lên nhau (tab)
+alt-shift-space = 'layout floating tiling' # Chuyển cửa sổ sang dạng nổi (floating) hoặc xếp gạch
 
-alt-shift-f = 'fullscreen'
+# 6. Chuyển đổi nhanh giữa các Workspace (1 -> 9)
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+
+# 7. Đưa cửa sổ đang chọn sang Workspace khác (1 -> 9)
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+
+# 8. Quay lại Workspace vừa dùng trước đó (rất tiện để lật qua lại 2 màn hình)
 alt-tab = 'workspace-back-and-forth'
+
+# Chuyển toàn bộ workspace đang chọn sang màn hình tiếp theo
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
+# 9. Vào chế độ Service (để reload config hoặc reset layout)
 alt-shift-semicolon = 'mode service'
 
+# ==============================================================================
+# CHẾ ĐỘ SERVICE (Bấm Alt + Shift + ; để vào)
+# ==============================================================================
 [mode.service.binding]
-esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main']
-f = ['layout floating tiling', 'mode main']
-backspace = ['close-all-windows-but-current', 'mode main']
+esc = ['reload-config', 'mode main'] # Bấm Esc để tải lại file config và thoát chế độ service
+r = ['flatten-workspace-tree', 'mode main'] # Bấm R để sắp xếp lại toàn bộ cây cửa sổ bị rối
+backspace = ['close-all-windows-but-current', 'mode main'] # Đóng tất cả cửa sổ khác trong workspace
 
-
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
-
+# ==============================================================================
+# QUY TẮC TỰ ĐỘNG CHO CÁC CỬA SỔ ĐẶC BIỆT (Cài đặt hệ thống, Finder...)
+# ==============================================================================
+# Giữ cửa sổ System Settings luôn ở dạng nổi (floating) để không làm vỡ bố cục
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace C"
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id ='com.mitchellh.ghostty'
-run = "move-node-to-workspace C"
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = "move-node-to-workspace B"
-
-[[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'
-run = "move-node-to-workspace B"
-
+# Giữ cửa sổ Finder ở dạng nổi (tuỳ chọn, có thể xoá nếu muốn Finder chia ô)
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = "move-node-to-workspace D"
-
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
-run = "move-node-to-workspace W"
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Preview'
-run = "move-node-to-workspace R"
-
-[[on-window-detected]]
-if.app-id = 'com.apple.iBooksX'
-run = "move-node-to-workspace R"
-
-[[on-window-detected]]
-if.app-id = 'info.sioyek.sioyek'
-run = "move-node-to-workspace R"
-
-[[on-window-detected]]
-if.app-id = 'notion.id'
-run = "move-node-to-workspace N"
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Notes'
-run = "move-node-to-workspace N"
-
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = "move-node-to-workspace N"
-
-[[on-window-detected]]
-
-if.app-id = 'com.googlecode.iterm2'
-run = 'move-node-to-workspace S'
-
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace W'
-
-[[on-window-detected]]
-if.app-id = 'com.blackmagic-design.DaVinciResolveLite'
-run = 'move-node-to-workspace V'
-
-[[on-window-detected]]
-if.app-id = 'com.obsproject.obs-studio'
-run = 'move-node-to-workspace V'
-
-[[on-window-detected]]
-if.app-id = 'com.vmware.fusion'
-run = 'move-node-to-workspace X'
-
-[[on-window-detected]]
-if.app-id = 'org.qutebrowser.qutebrowser'
-run = ['layout tiling', 'move-node-to-workspace B']
-
-# which work space is on which monitor
-[workspace-to-monitor-force-assignment]
-W = 1
-C = 'secondary'
-X = 'secondary'
-D = 'main'
-S = 'main'
-
-#join
-# alt-shift-; for service mode
-# alt-shift -> L or H,.... to merge ...
+run = 'layout floating'
