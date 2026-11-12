@@ -3,7 +3,6 @@ local map = vim.keymap.set
 vim.pack.add({
   { src = "https://github.com/nvim-lua/plenary.nvim" },
   { src = 'https://github.com/nvim-mini/mini.pick', version = 'stable' },
-  { src = 'https://github.com/nvim-mini/mini.animate', version = 'stable' },
   { src = 'https://github.com/nvim-mini/mini.pairs', version = 'stable' },
   { src = 'https://github.com/nvim-mini/mini.icons', version = 'stable' },
   { src = 'https://github.com/nvim-mini/mini.indentscope', version = 'stable' },
@@ -13,8 +12,6 @@ vim.pack.add({
   { src = "https://github.com/rafamadriz/friendly-snippets" },
   { src = "https://github.com/L3MON4D3/LuaSnip" },
   { src = "https://github.com/j-hui/fidget.nvim" },
-  { src = "https://github.com/olimorris/codecompanion.nvim", version = "main" },
-  { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },
   { src = "https://github.com/epwalsh/obsidian.nvim" },
   { src = "https://github.com/hrsh7th/nvim-cmp" },
@@ -55,12 +52,15 @@ vim.paste = function(lines, phase)
 end
 
 require('mini.icons').setup()
-require('mini.animate').setup()
 require('mini.pairs').setup()
 require('mini.indentscope').setup()
 
--- Markdown Renderer
-require('render-markdown').setup({
+local markdown_plugins_setup = false
+local function setup_markdown_plugins()
+  if markdown_plugins_setup then return end
+  markdown_plugins_setup = true
+
+  require('render-markdown').setup({
   -- Cấu hình hiển thị chung
   heading = {
     enabled = true,
@@ -105,18 +105,24 @@ require('render-markdown').setup({
     style = 'full',
     cell = 'padded',
   },
-})
+  })
 
-require("image").setup({
-  backend = "kitty",
-  integrations = {
-    markdown = {
-      enabled = true,
-      download_remote_images = true,
-      only_render_image_at_cursor = false,
-      filetypes = { "markdown", "vimwiki" },
+  require("image").setup({
+    backend = "kitty",
+    integrations = {
+      markdown = {
+        enabled = true,
+        download_remote_images = true,
+        only_render_image_at_cursor = false,
+        filetypes = { "markdown", "vimwiki" },
+      },
     },
-  },
+  })
+end
+
+vim.api.nvim_create_autocmd({ "BufReadPre", "FileType" }, {
+  pattern = { "*.md", "*.markdown", "markdown", "vimwiki" },
+  callback = setup_markdown_plugins,
 })
 
 -- Treesitter
@@ -140,13 +146,6 @@ require("nvim-treesitter").setup({
   }
 })
 
--- File Explorer
-require("oil").setup()
-
--- LuaSnip
-require("luasnip").setup({ enable_autosnippets = true })
-require("luasnip.loaders.from_vscode").lazy_load()
-
 -- Lsp
 vim.lsp.enable({
   "lua_ls",
@@ -157,15 +156,19 @@ vim.lsp.enable({
   "gopls",
 })
 
-require("fidget").setup()
+local fidget_setup = false
+local function setup_fidget()
+  if fidget_setup then return end
+  fidget_setup = true
+  require("fidget").setup()
+end
 
--- AI
-require("codecompanion").setup()
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "go", "gomod", "gowork", "gosum", "lua", "css", "typescript", "javascript", "ruby" },
+  callback = setup_fidget,
+})
+
 -- require("neocodeium").setup()
-
--- Harpoon
-local harpoon = require("harpoon")
-harpoon:setup()
 
 -- Obsidian
 require("obsidian").setup({
