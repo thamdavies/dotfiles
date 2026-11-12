@@ -1,7 +1,13 @@
 local map = vim.keymap.set
-local harpoon = require("harpoon")
-local luasnip = require("luasnip")
-local cmp = require("cmp")
+
+local harpoon
+local function get_harpoon()
+  if not harpoon then
+    harpoon = require("harpoon")
+    harpoon:setup()
+  end
+  return harpoon
+end
 
 map("x", "<leader>p", [["_dP]])
 map({ "n", "v" }, "<leader>y", '"+y')
@@ -59,11 +65,15 @@ map('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, { des
 map('v', '<leader>lf', function() vim.lsp.buf.format { async = true } end, { desc = 'LSP format selection' })
 map('n', '<leader>li', '<cmd>checkhealth vim.lsp<CR>', { desc = 'LSP info' })
 
-map("n", "-", "<CMD>Oil<CR>", {
-  desc = "Open parent directory",
-})
+map("n", "<C-b>", "<cmd>Explore<CR>", { desc = "Open file explorer" })
 
-cmp.setup({
+local function setup_completion()
+  local cmp = require("cmp")
+  local luasnip = require("luasnip")
+  luasnip.setup({ enable_autosnippets = true })
+  require("luasnip.loaders.from_vscode").lazy_load()
+
+  cmp.setup({
   mapping = {
    ['<CR>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
@@ -99,23 +109,29 @@ cmp.setup({
       end
     end, { "i", "s" }),
   },
+  })
+end
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+  once = true,
+  callback = setup_completion,
 })
 
-map("n", "<leader>h", function() harpoon:list():add() end)
-map("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-map("n", "<M-1>", function() harpoon:list():select(1) end)
-map("n", "<M-2>", function() harpoon:list():select(2) end)
-map("n", "<M-3>", function() harpoon:list():select(3) end)
-map("n", "<M-4>", function() harpoon:list():select(4) end)
-map("n", "<M-5>", function() harpoon:list():select(5) end)
-map("n", "<M-6>", function() harpoon:list():select(6) end)
-map("n", "<M-7>", function() harpoon:list():select(7) end)
-map("n", "<M-8>", function() harpoon:list():select(8) end)
-map("n", "<M-9>", function() harpoon:list():select(9) end)
+map("n", "<leader>h", function() get_harpoon():list():add() end)
+map("n", "<C-e>", function() local h = get_harpoon(); h.ui:toggle_quick_menu(h:list()) end)
+map("n", "<M-1>", function() get_harpoon():list():select(1) end)
+map("n", "<M-2>", function() get_harpoon():list():select(2) end)
+map("n", "<M-3>", function() get_harpoon():list():select(3) end)
+map("n", "<M-4>", function() get_harpoon():list():select(4) end)
+map("n", "<M-5>", function() get_harpoon():list():select(5) end)
+map("n", "<M-6>", function() get_harpoon():list():select(6) end)
+map("n", "<M-7>", function() get_harpoon():list():select(7) end)
+map("n", "<M-8>", function() get_harpoon():list():select(8) end)
+map("n", "<M-9>", function() get_harpoon():list():select(9) end)
 
 -- Toggle previous & next buffers stored within Harpoon list
-map("n", "<C-S-P>", function() harpoon:list():prev() end)
-map("n", "<C-S-N>", function() harpoon:list():next() end)
+map("n", "<C-S-P>", function() get_harpoon():list():prev() end)
+map("n", "<C-S-N>", function() get_harpoon():list():next() end)
 
 
 map("n", "<leader>ff", function()
@@ -123,7 +139,7 @@ map("n", "<leader>ff", function()
 end, { desc = "Find files" })
 
 map("n", "<leader>fw", function()
-  MiniPick.builtin.grep_live()
+  MiniPick.builtin.grep_live({ method = "plain" })
 end, { desc = "Live grep" })
 
 map("n", "<leader>fb", function()
